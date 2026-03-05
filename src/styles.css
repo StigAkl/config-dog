@@ -26,12 +26,14 @@
   --link-bg-hover: rgba(255, 255, 255, 0.9);
   --hero-a: rgba(79, 184, 178, 0.36);
   --hero-b: rgba(47, 106, 74, 0.2);
+    --color-sea-ink: #d7ece8;
 }
 
 :root[data-theme="dark"] {
   --sea-ink: #d7ece8;
   --sea-ink-soft: #afcdc8;
   --lagoon: #60d7cf;
+    --color-sea-ink: #d7ece8;
   --lagoon-deep: #8de5db;
   --palm: #6ec89a;
   --sand: #0f1a1e;
@@ -48,6 +50,16 @@
   --link-bg-hover: rgba(24, 44, 49, 0.8);
   --hero-a: rgba(96, 215, 207, 0.18);
   --hero-b: rgba(110, 200, 154, 0.12);
+}
+
+@theme inline {
+  --color-sea-ink: var(--sea-ink);
+  --color-sea-ink-soft: var(--sea-ink-soft);
+  --color-lagoon: var(--lagoon);
+  --color-lagoon-deep: var(--lagoon-deep);
+  --color-palm: var(--palm);
+  --color-sand: var(--sand);
+  --color-foam: var(--foam);
 }
 
 @media (prefers-color-scheme: dark) {
