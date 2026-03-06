@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "../styles.css";
 
+import Sidebar from "#/components/Sidebar";
 import ClerkProvider from "../integrations/clerk/provider";
 
 export const Route = createRootRoute({
@@ -33,9 +34,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			</head>
 			<body className="font-sans antialiased wrap-anywhere selection:bg-[rgba(79,184,178,0.24)]">
 				<ClerkProvider>
-					<Header />
-					{children}
-					<Footer />
+					<div className="flex min-h-screen">
+						<Sidebar />
+
+						<div className="flex flex-col min-w-0 flex-1">
+							<Header />
+							{children}
+							<Footer />
+						</div>
+					</div>
 					<TanStackDevtools
 						config={{
 							position: "bottom-right",

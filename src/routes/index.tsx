@@ -6,26 +6,43 @@ export const Route = createFileRoute("/")({ component: App });
 
 type Environment = "Development" | "Staging" | "Production";
 
-type FeatureFlag = Record<string, boolean>;
+type FeatureFlags = {
+	fastCheckout: boolean;
+	newView: boolean;
+};
 
-const featureFlags: FeatureFlag = {
-	fastCheckout: false,
-	newView: true,
+const environment: Environment = "Production";
+
+const flagsByEnvironment: Record<Environment, FeatureFlags> = {
+	Development: {
+		fastCheckout: true,
+		newView: true,
+	},
+	Staging: {
+		fastCheckout: true,
+		newView: false,
+	},
+	Production: {
+		fastCheckout: false,
+		newView: true,
+	},
 };
 
 function App() {
-	const [features, setFeatures] = useState(featureFlags);
+	const [features, setFeatures] = useState<FeatureFlags>({
+		...flagsByEnvironment[environment],
+	});
 
-	const keys = Object.keys(features);
+	const keys = Object.keys(features) as Array<keyof FeatureFlags>;
 	return (
 		<main className="page-wrap px-4 pb-8 pt-14">
-			<div className="flex items-center justify-center gap-2 text-xl">
+			<div className="flex items-center gap-2 text-xl">
 				<div className="p-2 bg-(--color-lagoon-deep) rounded-lg">
 					<Flag className="text-white" />
 				</div>
 				<div className="flex flex-col">
 					<h1>Feature Toggles</h1>
-					<span className="text-sm">Production</span>
+					<span className="text-sm">{environment}</span>
 				</div>
 			</div>
 
