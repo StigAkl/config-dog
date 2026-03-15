@@ -74,10 +74,6 @@ function App() {
 					))}
 				</div>
 			</section>
-			<div className="p-10">
-				<label htmlFor="input">Hei feature toggles</label>
-				<input type="text" name="input" placeholder="test" />
-			</div>
 		</main>
 	);
 }

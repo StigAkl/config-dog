@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --sea-ink: #1d2520;
+  --sea-ink-soft: #5b6b60;
+  --lagoon: #76c442;
+  --lagoon-deep: #5ea535;
+  --palm: #3f7e2a;
+  --sand: #edf4e6;
+  --foam: #f7fbf3;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --line: rgba(53, 95, 37, 0.14);
+  --inset-glint: rgba(255, 255, 255, 0.84);
+  --kicker: rgba(70, 132, 45, 0.96);
+  --bg-base: #e9f2df;
+  --header-bg: rgba(250, 253, 246, 0.88);
+  --chip-bg: rgba(255, 255, 255, 0.84);
+  --chip-line: rgba(70, 132, 45, 0.2);
+  --link-bg-hover: rgba(255, 255, 255, 0.95);
+  --hero-a: rgba(118, 196, 66, 0.28);
+  --hero-b: rgba(63, 126, 42, 0.16);
+  --hero-c: rgba(94, 165, 53, 0.12);
+}
+
+:root[data-theme="dark"] {
+  --sea-ink: #dce9d4;
+  --sea-ink-soft: #a7bca0;
+  --lagoon: #8cd95a;
+  --lagoon-deep: #74c448;
+  --palm: #9de07b;
+  --sand: #121912;
+  --foam: #152016;
+  --surface: rgba(19, 30, 20, 0.82);
+  --surface-strong: rgba(17, 26, 18, 0.93);
+  --line: rgba(140, 217, 90, 0.18);
+  --inset-glint: rgba(193, 238, 172, 0.14);
+  --kicker: #b7e8a0;
+  --bg-base: #0b120b;
+  --header-bg: rgba(11, 18, 11, 0.84);
+  --chip-bg: rgba(19, 30, 20, 0.9);
+  --chip-line: rgba(140, 217, 90, 0.24);
+  --link-bg-hover: rgba(34, 49, 31, 0.86);
+  --hero-a: rgba(140, 217, 90, 0.16);
+  --hero-b: rgba(116, 196, 72, 0.11);
+  --hero-c: rgba(157, 224, 123, 0.08);
+}
+
+@theme inline {
+  --color-sea-ink: var(--sea-ink);
+  --color-sea-ink-soft: var(--sea-ink-soft);
+  --color-lagoon: var(--lagoon);
+  --color-lagoon-deep: var(--lagoon-deep);
+  --color-palm: var(--palm);
+  --color-sand: var(--sand);
+  --color-foam: var(--foam);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sea-ink: #dce9d4;
+    --sea-ink-soft: #a7bca0;
+    --lagoon: #8cd95a;
+    --lagoon-deep: #74c448;
+    --palm: #9de07b;
+    --sand: #121912;
+    --foam: #152016;
+    --surface: rgba(19, 30, 20, 0.82);
+    --surface-strong: rgba(17, 26, 18, 0.93);
+    --line: rgba(140, 217, 90, 0.18);
+    --inset-glint: rgba(193, 238, 172, 0.14);
+    --kicker: #b7e8a0;
+    --bg-base: #0b120b;
+    --header-bg: rgba(11, 18, 11, 0.84);
+    --chip-bg: rgba(19, 30, 20, 0.9);
+    --chip-line: rgba(140, 217, 90, 0.24);
+    --link-bg-hover: rgba(34, 49, 31, 0.86);
+    --hero-a: rgba(140, 217, 90, 0.16);
+    --hero-b: rgba(116, 196, 72, 0.11);
+    --hero-c: rgba(157, 224, 123, 0.08);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--sea-ink);
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  background: var(--bg-base);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: none;
+}
+
+body::after {
+  content: none;
+}
