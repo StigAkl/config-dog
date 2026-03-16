@@ -7,7 +7,7 @@ import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.json.JavalinJackson
 
 fun main() {
-    val app = Javalin.create { config ->
+    Javalin.create { config ->
         config.jsonMapper(JavalinJackson())
         config.routes.apiBuilder {
             path("api") {
