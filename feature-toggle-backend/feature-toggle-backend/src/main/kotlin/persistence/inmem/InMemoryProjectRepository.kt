@@ -13,14 +13,17 @@ object InMemoryProjectRepository: ProjectRepository {
     }
 
     override fun create(item: Project) {
-        TODO("Not yet implemented")
+        InMemoryDatabase.projects[item.id] = item
     }
 
     override fun update(item: Project) {
-        TODO("Not yet implemented")
+        val currentItem = InMemoryDatabase.projects[item.id]
+        if(currentItem != null) {
+            InMemoryDatabase.projects[item.id] = item
+        }
     }
 
     override fun delete(item: Project) {
-        TODO("Not yet implemented")
+        InMemoryDatabase.projects.remove(item.id)
     }
 }

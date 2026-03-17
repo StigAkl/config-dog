@@ -7,7 +7,7 @@ import io.configdog.domain.Project
 import java.util.concurrent.ConcurrentHashMap
 
 object InMemoryDatabase {
-    val projects = ConcurrentHashMap<String, Project>(
+    val projects = ConcurrentHashMap(
         mapOf(
             "project-1" to Project(
                 id = "project-1",
